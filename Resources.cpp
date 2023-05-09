@@ -5,7 +5,7 @@
 using namespace std;
 
 Resources::Resources(): onion(100), tomato(100), mushroom(100) {
-    bowlAmount = new Bowl[3];
+    bowlAmount = new Bowl*[3];
 };
 
 void Resources::removeOnion() {onion = onion - 1;};

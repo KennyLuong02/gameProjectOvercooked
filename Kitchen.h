@@ -1,20 +1,34 @@
-#ifndef __CONTAINER_H__
-#define __CONTAINER_H__
-#include <ctime>
+#ifndef __KITCHEN_H__
+#define __KITCHEN_H__
+#include <string>
+#include "Player.h"
+#include "Resources.h"
+#include "Container.h"
 
 using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-// FOR THE CONTAINER
+// FOR THE KITCHEN
 //
-// [Container]
-//      - Varibales:
-//          int state
-//          time_t time;
+// [Dishwasher]
+//      - Variables:
+//          
 //      - Functions:
-//          Container();
-//          Container(int state);
-//          void setState(int state);
-//          virtual void interact() = 0;
+//          void useStove(); //
+//          void useDishwasher(); //
+//          void useBowl(); //
+//          void useBin();
+//
+//          void pickupOnion(); //number 5
+//          void pickupTomato(); //number 7
+//          void pickupMushroom(); //number 11
+//          void pickupBowl(); //number 13
+//
+//          void dropOnion();
+//          void dropTomato();
+//          void dropMushroom();
+//          void dropupBowl();
+//
+//          friend class Player;
 //
 // It will have three states: (inherited from Container.cpp)
 //              0: empty
@@ -59,28 +73,31 @@ using namespace std;
 //
 // Kenny: not sure if we have to make 3 bowls in an array when contruct the Resources in Resources.h
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Container {
+
+class Kitchen: public Resources, public Container {
     public:
-        Container();
-        Container(int state);
+        void useStove(); //
+        void useDishwasher(); //
+        void useBowl(); //
+        void useBin();
 
-        void setState(int state);
 
-        virtual void interact() = 0;
-        
-        virtual int getState() = 0; //check
-        
+        void pickupOnion(); //number 5
+        void pickupTomato(); //number 7
+        void pickupMushroom(); //number 11
+        void pickupBowl(); //number 13
 
-    protected:
-        // This is state variable that will
-        int state;
-        // bool isFull; //check
-        time_t time; //might need to add in time_t later
+        void dropOnion();
+        void dropTomato();
+        void dropMushroom();
+        void dropupBowl();
 
-        //friend class Player
+        friend class Player;
 
-        //In SFML there will be colour
-        //Add in later
+    private:
+        // string state; //maybe int
+        // string name;
+
 
 };
 

@@ -7,6 +7,18 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // FOR THE BOWL
 //
+// [Bowl]
+//      - Variables:
+//          int state; (inherit from Container.h)
+//          time_t time; (inherit from Container.h)
+//          int content;
+//      - Functions:
+//          Bowl();
+//          int getState();
+//          int getContent();
+//          void setContent(int sum);
+//          void setState(int sum);
+//
 // It will have three states: (inherited from Container.cpp)
 //              0: empty
 //              1: full
@@ -57,12 +69,12 @@ class Bowl: public Container {
         Bowl();
         int getState();
         int getContent();
-        void setContent(int n);
-        void setState(int n);
+        void setContent(int sum);
+        void setState(int sum);
         
 
     private:
-        int sum;
+        int content;
         
 
         //friend class Player
