@@ -79,6 +79,8 @@ using namespace std;
 
 class Player {
     public:
+        Player();
+
         void useStove(); //
         void useDishwasher(); //
         void useBowl(); //
@@ -102,6 +104,8 @@ class Player {
     private:
         bool state;
         string name;
+
+        //may need to add in location for SFML game
 
 
 };
