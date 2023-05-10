@@ -69,8 +69,8 @@ class Bowl: public Container {
         Bowl();
         int getState();
         int getContent();
-        void setContent(int sum);
-        void setState(int sum);
+        void setContent(int content);
+        void setState(int state);
         
 
     private:
