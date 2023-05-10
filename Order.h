@@ -1,6 +1,7 @@
 #ifndef __ORDER_H__
 #define __ORDER_H__
 #include <string>
+#include "Bowl.h"
 
 using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -60,17 +61,24 @@ using namespace std;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Order {
     public:
+        Order();
         void putOrder();
         void checkOrder();
-        int receiveOrder(int content); //check if the soup is correct
+        int receiveOrder(Bowl* theBowl); //check if the soup is correct
                                     //if yes then delete the order and empty the bowl
                                     //if no then keep all order and empty the bowl
                                     //return dirty bowl
         
 
     private:
-        int* order;
-        int contentOfOrder; //this is to compare with the content inside the bowl
+        int* order; //change the size later
+        int orderSize; //keep the size of the order array
+
+        int counter; //to keep track of how many order has been placed 
+        int contentOfBowl; //to get content from bowl
+
+        int contentOfOrder; //may not need this
+                            //this is to compare with the content inside the bowl
 
 
 };
