@@ -67,7 +67,8 @@ class Stove: public Container {
         Stove(); //maybe make 2 stoves
         int getState();
         void setState(int n);
-        
+        int getContent();
+        void setContent(int content);
 
     private:
         int content;
