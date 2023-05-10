@@ -73,6 +73,10 @@ class Resources: public Player {
         void removeMushroom();
 
         //void interact(string label);
+    
+        int getOnion();
+        int getTomato();
+        int getMushrooom();
 
     private:
         int mushroom; //number 5
