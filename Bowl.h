@@ -69,7 +69,7 @@ class Bowl: public Container {
         Bowl();
         int getState();
         int getContent();
-        void setContent(int content);
+        void setContent(int contentt);
         void setState(int state);
         
 

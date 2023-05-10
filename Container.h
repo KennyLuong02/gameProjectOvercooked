@@ -66,8 +66,8 @@ class Container {
 
         void setState(int state);
 
-        virtual void interact() = 0;
-        
+        virtual void interact() = 0; //check
+        virtual void timerFunction() = 0; //might need this to control the time for Stove and Dishwasher
         virtual int getState() = 0; //check
         
 
@@ -75,7 +75,7 @@ class Container {
         // This is state variable that will
         int state;
         // bool isFull; //check
-        time_t time; //might need to add in time_t later
+        time_t time;
 
         //friend class Player
 

@@ -1,8 +1,13 @@
+#include <iostream>
 #include <string>
 #include "Container.h"
 #include "Bowl.h"
 
 using namespace std;
+
+
+// Need some more work
+
 
 Bowl::Bowl() {
     Container::setState(0); //Initialise as empty bowl
@@ -16,8 +21,12 @@ void Bowl::setState(int state) {
     Container::setState(state); //Either 0: empty, 1:full, or -1: dirty
 };
 
-int Bowl::getState() {return state;};
+int Bowl::getContent() {return content;};
 
-void Bowl::setState(int content) {
-    Container::setState(content); //Either 0: empty, 1:full, or -1: dirty
+void Bowl::setContent(int contentt) {
+    if (contentt == 0 || contentt == 15 || contentt == 21 || contentt == 33 || contentt == 23) {
+        this-> content = content; //Either 0: empty, 15: Mushroom soup, 21: Onion soup, 33: Tomato soup, 23: Com soup
+    } else {
+        cout << "Cannot put this into the bowl" << endl; //need to change it in the SFML version
+    }
 };

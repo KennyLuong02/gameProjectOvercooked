@@ -60,16 +60,17 @@ using namespace std;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Order {
     public:
-        void putOrder(); //
+        void putOrder();
         void checkOrder();
-        int receiveOrder(int sum); //check if the soup is correct
+        int receiveOrder(int content); //check if the soup is correct
                                     //if yes then delete the order and empty the bowl
                                     //if no then keep all order and empty the bowl
                                     //return dirty bowl
         
 
     private:
-        int order;
+        int* order;
+        int contentOfOrder; //this is to compare with the content inside the bowl
 
 
 };
