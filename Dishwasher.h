@@ -75,7 +75,8 @@ class Dishwasher: public Container {
         void setPowerState(bool n);
 
         //Virtual inheritance
-        void timerFunction();
+        void timerFunction(int n); //n is the label for which bowl it is
+                                   //because the Stove also use the same function and it cannot really use a pointer
         
 
     private:

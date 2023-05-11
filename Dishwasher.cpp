@@ -22,7 +22,7 @@ void Dishwasher::setPowerState(bool n) {
     isOn = n;
  };
 
-void Dishwasher::timerFunction() {
+void Dishwasher::timerFunction(int n) { //need a Bowl input pointer
     //Check if the Dishwasher is empty
     if (state == 0) {
         //Wait 2s before make the bowl clean

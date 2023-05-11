@@ -4,7 +4,7 @@ Bowl.h - not yet
 Container.cpp - done
 Container.h - check the virtual function
 
-Dishwasher.cpp - may need an interaction function with time (2s)
+Dishwasher.cpp - in timerFunction() need a Bowl pointer
 Dishwasher.h - may need an interaction function with time (2s)
 
 Order.cpp - properly done, except may need to make the Order array dynamic

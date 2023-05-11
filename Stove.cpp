@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <ctime>
 #include "Player.h"
@@ -22,13 +23,18 @@ void Stove::setContent(int content) {
    this-> content = content;
 };
 
-void Stove::timerFunction() {
+
+
+
+void Stove::timerFunction(int contentToAdd) { //need to add input of the content as addContent()
+    content = content + contentToAdd;
     //Check if the sum is higher than 14
     if (content > 14) {
         //Wait 3s before release the content
         time_t timeNow;
         timeNow = time(NULL);
         timeNow = timeNow - timeContainer;
+        cout << "Cooking in progress" << endl;
 
         while (timeNow < 3) {
             timeNow = time(NULL);

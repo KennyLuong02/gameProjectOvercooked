@@ -66,7 +66,7 @@ class Container : public Player {
         //set the state use function int getPlayerState() in Player
 
         virtual void interact() = 0; //check
-        virtual void timerFunction() = 0; //might need this to control the time for Stove and Dishwasher
+        virtual void timerFunction(int n) = 0; //need a input
         
 
     protected:
