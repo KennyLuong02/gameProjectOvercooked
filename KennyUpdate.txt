@@ -1,0 +1,20 @@
+Bowl.cpp - not yet
+Bowl.h - not yet
+
+Container.cpp - done
+Container.h - check the virtual function
+
+Dishwasher.cpp - may need an interaction function with time (2s)
+Dishwasher.h - may need an interaction function with time (2s)
+
+Order.cpp - properly done, except may need to make the Order array dynamic
+Order.h - suggestion: can combine Order and putOrder
+
+Player.cpp - done
+Player.h - done
+
+Resources.cpp - need a lot of work
+Resources.h - need a lot of work
+
+Stove.cpp - may need an interaction function with time (3s)
+Stove.h - may need an interaction function with time (3s)
