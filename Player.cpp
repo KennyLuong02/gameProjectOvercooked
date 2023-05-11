@@ -14,7 +14,7 @@ Player::Player() : Player("No Name") {};
 
 
 void Player::drop() {
-    if(state == 5 || state == 7 || state == 11) {
+    if(state == 5 || state == 7 || state == 11) { //The rest of the pickup would be in Resources
         this->setPlayerState(0);
         std::cout << "dropped" << std::endl;
     }   else {

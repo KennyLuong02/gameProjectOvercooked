@@ -1,6 +1,7 @@
 #ifndef __CONTAINER_H__
 #define __CONTAINER_H__
 #include <ctime>
+#include "Player.h"
 
 using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -62,9 +63,7 @@ using namespace std;
 class Container : public Player {
     public:
         Container();
-        Container(int state);
-
-        void setState(int state);
+        //set the state use function int getPlayerState() in Player
 
         virtual void interact() = 0; //check
         virtual void timerFunction() = 0; //might need this to control the time for Stove and Dishwasher

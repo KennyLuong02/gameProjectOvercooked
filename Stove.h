@@ -1,7 +1,7 @@
 #ifndef __STOVE_H__
 #define __STOVE_H__
-
 #include <string>
+#include "Player.h"
 #include "Container.h"
 
 using namespace std;

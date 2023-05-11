@@ -74,6 +74,7 @@ class Bowl: public Container {
         
 
     private:
+        int stateOfBowl;
         int content;
         
 

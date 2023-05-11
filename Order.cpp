@@ -13,7 +13,14 @@ using namespace std;
 Order::Order() {
     //This can be randomised later in the game but it will be hard-code for now
     orderSize = 5;
-    order[orderSize] = {15, 21, 33, 23, 21};
+    // sleep(3);
+    order[5];
+
+    order[0] = {15};
+    order[1] = {21};
+    order[2] = {33};
+    order[3] = {23};
+    order[4] = {21};
 
     counter = 0;
 }
