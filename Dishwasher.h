@@ -1,7 +1,7 @@
 #ifndef __DISHWASHER_H__
 #define __DISHWASHER_H__
 #include <string>
-#include "Container.h"
+#include "Player.h"
 
 using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////

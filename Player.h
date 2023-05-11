@@ -3,7 +3,6 @@
 #include <string>
 #include "Kitchen.h"
 
-using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // FOR THE PLAYER
 //
@@ -80,30 +79,20 @@ using namespace std;
 class Player {
     public:
         Player();
+        Player(std::string);    
 
-        void useStove(); //
-        void useDishwasher(); //
-        void useBowl(); //
-        void useBin();
+        void drop();
 
+        int getPlayerState();
+        void setPlayerState(int stateInput);
 
-        void pickupOnion(); //number 5
-        void pickupTomato(); //number 7
-        void pickupMushroom(); //number 11
-        void pickupBowl(); //number 13
+        std::string getPlayerName();
+        void setPlayerName(std::string nameInput);
 
-        void dropOnion();
-        void dropTomato();
-        void dropMushroom();
-        void dropupBowl();
-        
-        Player();
-
-        virtual void interact(string label) = 0;
 
     private:
-        bool state;
-        string name;
+        int state;
+        std::string name;
 
         //may need to add in location for SFML game
 

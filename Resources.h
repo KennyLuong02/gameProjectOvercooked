@@ -72,6 +72,8 @@ class Resources: public Player {
         void removeTomato();
         void removeMushroom();
 
+        void pickUp();
+
         //void interact(string label);
     
         int getOnion();

@@ -3,21 +3,40 @@
 #include "Kitchen.h"
 #include "Player.h"
 
-using namespace std;
-
-
 // Need some more work
 
 
-Player::Player() {
+Player::Player(std::string nameInput) : name(nameInput) {
+    state = 0;
+};
+
+Player::Player() : Player("No Name") {};
 
 
-    //may need to add all the instruction and details of the game here
+void Player::drop() {
+    if(state == 5 || state == 7 || state == 11) {
+        this->setPlayerState(0);
+        std::cout << "dropped" << std::endl;
+    }   else {
+        std::cout << "not dropped" << std::endl;
+        return;
+    }
+};
+
+void Player::setPlayerState(int stateInput) {
+    state = stateInput;
+};
+int Player::getPlayerState() {
+    return state;
+};
 
 
-    cout << "Please enter your name: ";
-    cin >> name;
 
-    state = 0; //start as empty
+void Player::setPlayerName(std::string nameInput) {
+    name = nameInput;
+};
+std::string Player::getPlayerName() {
+    return name;
+};
 
-}
+

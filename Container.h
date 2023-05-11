@@ -59,7 +59,7 @@ using namespace std;
 //
 // Kenny: not sure if we have to make 3 bowls in an array when contruct the Resources in Resources.h
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Container {
+class Container : public Player {
     public:
         Container();
         Container(int state);
