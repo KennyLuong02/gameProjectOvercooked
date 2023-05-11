@@ -79,13 +79,14 @@
 class Player {
     public:
         Player();
-        Player(std::string);    
+        Player(std::string);
 
-        void drop();
-
+        //Everything need this
         int getPlayerState();
         void setPlayerState(int stateInput);
 
+        //Only for Player
+        void drop();
         std::string getPlayerName();
         void setPlayerName(std::string nameInput);
 

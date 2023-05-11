@@ -70,6 +70,8 @@ class Stove: public Container {
         int getContent();
         void setContent(int content);
 
+        void timerFunction();
+
     private:
         int content;
         

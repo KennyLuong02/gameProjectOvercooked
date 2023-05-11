@@ -67,16 +67,13 @@ class Container : public Player {
 
         virtual void interact() = 0; //check
         virtual void timerFunction() = 0; //might need this to control the time for Stove and Dishwasher
-        virtual int getState() = 0; //check
         
 
     protected:
         // This is state variable that will
         int state;
         // bool isFull; //check
-        time_t time;
-
-        //friend class Player
+        time_t timeContainer;
 
         //In SFML there will be colour
         //Add in later

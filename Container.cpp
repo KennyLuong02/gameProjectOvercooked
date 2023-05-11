@@ -1,4 +1,5 @@
 #include <string>
+#include <ctime>
 #include "Container.h"
 
 using namespace std;
@@ -8,5 +9,5 @@ using namespace std;
 
 
 Container::Container(): Player() { //the state 0 is already initialised when make the Container by Player
-    time = NULL;
+    timeContainer = time(NULL);
 };

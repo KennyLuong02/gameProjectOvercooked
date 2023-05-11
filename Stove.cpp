@@ -1,4 +1,5 @@
 #include <string>
+#include <ctime>
 #include "Player.h"
 #include "Container.h"
 #include "Stove.h"
@@ -18,5 +19,24 @@ void Stove::setState(int n) {
 int Stove::getContent() {return content;};
 
 void Stove::setContent(int content) {
-   this -> content = content;
+   this-> content = content;
+};
+
+void Stove::timerFunction() {
+    //Check if the sum is higher than 14
+    if (content > 14) {
+        //Wait 3s before release the content
+        time_t timeNow;
+        timeNow = time(NULL);
+        timeNow = timeNow - timeContainer;
+
+        while (timeNow < 3) {
+            timeNow = time(NULL);
+            timeNow = timeNow - timeContainer;
+        }
+
+        //Make the content to the soup sum
+        //Use getContent to put soup in Bowl
+        //If the Bowl get the content then setContent(0)
+    }
 };

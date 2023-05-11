@@ -73,6 +73,9 @@ class Dishwasher: public Container {
 
         bool getPowerState();
         void setPowerState(bool n);
+
+        //Virtual inheritance
+        void timerFunction();
         
 
     private:
