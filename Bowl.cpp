@@ -10,7 +10,7 @@ using namespace std;
 
 
 Bowl::Bowl() {
-    Container::setState(0); //Initialise as empty bowl
+    state = 0; //Initialise as empty bowl
     content = 0; //No soup inside
     //may need to set the inherited timer to 0
 };
@@ -18,7 +18,7 @@ Bowl::Bowl() {
 int Bowl::getState() {return state;};
 
 void Bowl::setState(int state) {
-    Container::setState(state); //Either 0: empty, 1:full, or -1: dirty
+    stateOfBowl = state; //Either 0: empty, 1:full, or -1: dirty
 };
 
 int Bowl::getContent() {return content;};
