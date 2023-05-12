@@ -61,7 +61,7 @@ using namespace std;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Order {
     public:
-        Order();
+        Order(int orderInput);
         void putOrder();
         void checkOrder();
         int receiveOrder(Bowl* theBowl); //check if the soup is correct

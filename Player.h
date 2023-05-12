@@ -91,7 +91,7 @@ class Player {
         void setPlayerName(std::string nameInput);
 
 
-    private:
+    protected:
         int state;
         std::string name;
 

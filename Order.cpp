@@ -10,8 +10,9 @@ using namespace std;
 // Need some more work
 
 
-Order::Order() {
+Order::Order(int orderInput) : orderSize(orderInput) {
     //This can be randomised later in the game but it will be hard-code for now
+<<<<<<< HEAD
     orderSize = 5;
     // sleep(3);
     order[5];
@@ -21,6 +22,10 @@ Order::Order() {
     order[2] = {33};
     order[3] = {23};
     order[4] = {21};
+=======
+    int array[5] = {15,21,33,23,21};
+    order = &array[0];
+>>>>>>> 9042053 (Seth)
 
     counter = 0;
 }
