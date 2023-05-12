@@ -68,11 +68,11 @@ using namespace std;
 class Resources: public Player {
     public:
         Resources();
-        void removeOnion();
-        void removeTomato();
-        void removeMushroom();
+        // void removeOnion();
+        // void removeTomato();
+        // void removeMushroom();
 
-        void pickUp();
+        void pickUp(string pickUpInput);
 
         //void interact(string label);
     
