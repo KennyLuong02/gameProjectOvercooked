@@ -3,8 +3,6 @@
 #include <ctime>
 #include "Player.h"
 
-#include "Player.h"
-
 using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // FOR THE CONTAINER
@@ -67,8 +65,7 @@ class Container : public Player {
         Container();
         //set the state use function int getPlayerState() in Player
 
-        virtual void interact() = 0; //check
-        virtual void timerFunction(int n) = 0; //need a input
+        //virtual void interact() = 0; //check
         
 
     protected:
