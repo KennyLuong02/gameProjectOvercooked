@@ -1,0 +1,34 @@
+-an print() overloader
+-getters, setters and encapsulation
+-Store and recall multiple entries of data, like doing a stats table
+-can save game 
+-User interface
+-interactive and give back errors, do a guide for the user through the program
+
+
+
+-well-commented code that explains the purpose, input-output
+-Consistently well-named, and well-organized. Follows a consistent naming-convention
+-Test in structured ways
+-not crashing or going into an infinite loop when the user tried to do so
+-validate user input correctly
+-End product matches the end doc without major changes
+-Use dynamic memory to allocate and deallocating
+
+
+
+
+===============================================================
+
+
+[Base]
+	-Data members
+		int x;	//x and y as coordinates of every created class
+		int y;
+	-functions:
+		getPosition();
+		setPosition();
+[Player]
+	-Data mem:
+		std::string playerName
+		
