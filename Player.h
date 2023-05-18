@@ -1,7 +1,8 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 #include <string>
-#include "Kitchen.h"
+#include "Position.h"
+#include "CSprite.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // FOR THE PLAYER
@@ -15,88 +16,64 @@
 //          void useDishwasher();
 //          void useBowl();
 //          void useBin();
-//
-//          void pickupOnion(); //number 5
-//          void pickupTomato(); //number 7
-//          void pickupMushroom(); //number 11
-//          void pickupBowl(); //number 13
-//
-//          void dropOnion();
-//          void dropTomato();
-//          void dropMushroom();
-//          void dropupBowl();
-//      
-//          Player();
-//          virtual void interact(string label) = 0;         
-//
-// The Player will have a name:
-//              name: string
-//
-// It will have three states: (inherited from Container.cpp)
-//              0: empty
-//              1: full
-//
-// It will also have a sum attached to say which soup is inside: (declared in private) 
-//                                                               (to communicate with the Order.h)
-//              5+5+5 = 15: mushroom soup
-//              7+7+7 = 21: onion soup
-//              11+11+11 = 33: tomato soup
-//              5+7+11 = 23: combination soup
-//          -> Any other combination is fine but there wil; be only 4 soups for the recipe
-//          -> The Order.h will accept or reject the soup and return the bowl in state -1 (dirty)
-//
-// It will start at state: 0 and sum: 0
-// 
-// It will have funtions: int getState(): return the state
-//                        void setState(int n): set the state
-//
-//                        int getContent(): return the content
-//                        void setContent(int n): set the content
-// 
-// For int getState(): interact with Order.h (when the bowl is empty, full, dirty):
-//                                           when the bowl is empty: return empty bowl (not dirty)
-//                                           when the bowl is full: check the content and return dirty bowl
-//                                           when the bowl is dirty: cannot happen
-//                                                                   because all dirty bowl will go straight to the dish washer
-//
-//                     interact with Player.h (when the bowl is empty, full, dirty):
-//                                           when the bowl is empty: put food in (only soup, no raw food)
-//                                           when the bowl is full: cannot put food in
-//                                           when the bowl is dirty: cannot happen
-//                                                                   because all dirty bowl will go straight to the dish washer
-//
-//                     interact with Resources.h (when the bowl is empty, full, dirty):
-//                                           when the bowl is empty: cannot put raw food
-//                                           when the bowl is full: cannot put food in
-//                                           when the bowl is dirty: cannot happen
-//                                                                   because all dirty bowl will go straight to the dish washer
-//
-//                     (maybe: interact with Stove.h (when the bowl is empty, full, dirty))
-//
-// Kenny: not sure if we have to make 3 bowls in an array when contruct the Resources in Resources.h
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class Player {
+
+class Player: public CSprite{
     public:
         Player();
         Player(std::string);
 
-        //Everything need this
-        int getPlayerState();
-        void setPlayerState(int stateInput);
+        unsigned char get_direction();
+        void set_direction(unsigned char i_direction);
 
-        //Only for Player
-        void drop();
-        std::string getPlayerName();
-        void setPlayerName(std::string nameInput);
+        void draw(bool i_victory, sf::RenderWindow& i_window);
+
+	    void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map);
+        void reset();
+
+        //Already in CSprite
+        //void set_position(short i_x, short i_y);
+	    //Position get_position();
+
+        int get_state();
+        void set_state(int stateInput);
+
+        void bin();
+
+        void set_animation_frame_timer(unsigned short i_animation_frame_timer);
+        unsigned short get_animation_frame_timer();
+
+        std::string get_player_name();
+        void set_player_name(std::string nameInput);
+
+        //don't know
+	    void set_dead(bool i_dead); //
+        bool           get_animation_over       ();//
+	    void           set_am_I_dead            (bool                                                     i_am_I_dead);
+	    bool           get_am_I_dead            ();
+
+	
 
 
     protected:
         int state;
         std::string name;
 
-        //may need to add in location for SFML game
+        unsigned char  m_direction;
 
+	    unsigned short m_animation_frame_timer;
+
+	    //unsigned short m_energizer_timer; no need
+
+        //Already in CSprite
+        //Position m_position;
+
+
+        //don't know
+        //This is used for the death animation.
+	    bool animation_over;
+	    //Am I dead?
+	    bool dead;
 
 };
 
