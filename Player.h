@@ -23,34 +23,38 @@ class Player: public CSprite{
         Player();
         Player(std::string);
 
-        unsigned char get_direction();
-        void set_direction(unsigned char i_direction);
-
-        void draw(bool i_victory, sf::RenderWindow& i_window);
-
-	    void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map);
-        void reset();
-
-        //Already in CSprite
-        //void set_position(short i_x, short i_y);
-	    //Position get_position();
-
         int get_state();
         void set_state(int stateInput);
-
-        void bin();
-
-        void set_animation_frame_timer(unsigned short i_animation_frame_timer);
-        unsigned short get_animation_frame_timer();
 
         std::string get_player_name();
         void set_player_name(std::string nameInput);
 
+        void set_animation_frame_timer(unsigned short i_animation_frame_timer);
+        unsigned short get_animation_frame_timer();
+
+        void update(unsigned char i_level, std::array<std::array<ObjectType,
+                         MAP_HEIGHT>, MAP_WIDTH>& i_map);
+
+        //reimplement virtual function                 
+        void reset();
+
+        //learn to use this
+        bool will_i_collide(bool i_collect_pellets, bool i_use_door, 
+                            short i_x, short i_y, std::array<std::array<ObjectType, 
+                                MAP_HEIGHT>, MAP_WIDTH>& i_map);
+
+        void draw(bool i_victory, sf::RenderWindow& i_window);
+
+        void bin(); //make a Bin class later
+
+
         //don't know
-	    void set_dead(bool i_dead); //
-        bool           get_animation_over       ();//
-	    void           set_am_I_dead            (bool                                                     i_am_I_dead);
-	    bool           get_am_I_dead            ();
+        unsigned char get_direction();
+        void set_direction(unsigned char i_direction);
+	    void set_dead(bool i_dead);
+        bool get_animation_over();
+	    void set_am_I_dead(bool i_am_I_dead);
+	    bool get_am_I_dead();
 
 	
 
@@ -71,9 +75,9 @@ class Player: public CSprite{
 
         //don't know
         //This is used for the death animation.
-	    bool animation_over;
+	    bool m_animation_over;
 	    //Am I dead?
-	    bool dead;
+	    bool m_dead;
 
 };
 

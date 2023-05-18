@@ -87,7 +87,8 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
         //To put content inside the stove
         //Check if the 'D' key is pressed
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true &&
-                get_cooking_state() == false) { //Press 'D' instead of Down
+                get_cooking_state() == false) { //Press 'D' instead of Down 
+                
             //Check the state of the player
             //Then add teh appropriate food in the stove and empty Player hand
             if (i_player.get_state() == 5) {

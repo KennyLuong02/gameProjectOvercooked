@@ -37,13 +37,14 @@ class Dishwasher: public Appliance {
 
         void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
                     Dishwasher& i_stove, Bowl& i_bowl_1, Player& i_player, int content_to_add); //fix this and this can be made into virtual function);
+                    // Seht work on the display for Player options
 
         //reimplement virtual function from Appliance
         void reset();
-        bool player_collide (const Position&  i_player_position);
+        bool player_collide(const Position&  i_player_position); //Ansh and Seth work on this
 
         //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window);
+        void draw(bool i_flash,sf::RenderWindow& i_window); //nsh and Seth work on this
 
 
 

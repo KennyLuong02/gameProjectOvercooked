@@ -25,16 +25,18 @@ constexpr unsigned short LONG_SCATTER_DURATION  = 512;  // frames
 constexpr unsigned short SHORT_SCATTER_DURATION = 256;  // frames
 
 enum ObjectType {
-	Stove,
-	Dishwasher,
-	Wall,
-	Empty,
+	STOVE,
+	DISHWASHER,
+	BOWL,
+	WALL,
+	BENCH,
+	CUSTOMER,
 	
 	//We may need this
-	BOWL,
-	Onion,
-	Tomato,
-	Mushroom
+	EMPTY,
+	ONION,
+	TOMATO,
+	MUSHROOM
 
 };
 
