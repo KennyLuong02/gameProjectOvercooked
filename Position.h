@@ -31,6 +31,7 @@ enum ObjectType {
 	WALL,
 	BENCH,
 	CUSTOMER,
+	BIN,
 	
 	//We may need this
 	EMPTY,

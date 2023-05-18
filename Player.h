@@ -38,14 +38,13 @@ class Player: public CSprite{
         //reimplement virtual function                 
         void reset();
 
-        //learn to use this
         bool will_i_collide(bool i_collect_pellets, bool i_use_door, 
                             short i_x, short i_y, std::array<std::array<ObjectType, 
                                 MAP_HEIGHT>, MAP_WIDTH>& i_map);
-
+        //learn to use this
         void draw(bool i_victory, sf::RenderWindow& i_window);
 
-        void bin(); //make a Bin class later
+    
 
 
         //don't know

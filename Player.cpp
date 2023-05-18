@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Position.h"
 #include "CSprite.h"
+#include "Bin.h"
 #include "Player.h"
 
 #include <SFML/Graphics.hpp>
@@ -64,6 +65,7 @@ void Player::set_animation_frame_timer(unsigned short i_animation_frame_timer) {
 }
 unsigned short Player::get_animation_frame_timer() {return m_animation_frame_timer;}
 
+
 //If you collide then return true or else return false
 bool Player::will_i_collide(bool i_collect_pellets, bool i_use_door, /*may not need*/
                             short i_x, short i_y, std::array<std::array<ObjectType, 
@@ -81,31 +83,20 @@ bool Player::will_i_collide(bool i_collect_pellets, bool i_use_door, /*may not n
 		short x = 0;
 		short y = 0;
 
-		switch (a)
-		{
-			case 0: //Top left cell
-			{
+		switch (a) {
+			case 0: { //Top left cell
 				x = static_cast<short>(floor(cell_x));
 				y = static_cast<short>(floor(cell_y));
-
 				break;
-			}
-			case 1: //Top right cell
-			{
+			} case 1: { //Top right cell
 				x = static_cast<short>(ceil(cell_x));
 				y = static_cast<short>(floor(cell_y));
-
 				break;
-			}
-			case 2: //Bottom left cell
-			{
+			} case 2: { //Bottom left cell
 				x = static_cast<short>(floor(cell_x));
 				y = static_cast<short>(ceil(cell_y));
-
 				break;
-			}
-			case 3: //Bottom right cell
-			{
+			} case 3: { //Bottom right cell
 				x = static_cast<short>(ceil(cell_x));
 				y = static_cast<short>(ceil(cell_y));
 			}
@@ -113,15 +104,24 @@ bool Player::will_i_collide(bool i_collect_pellets, bool i_use_door, /*may not n
 
 		//Making sure that the position is inside the map
 		if (x >= 0 && y >= 0 && y < MAP_HEIGHT &&  x > MAP_WIDTH) {
-			if (i_map[x][y] == ObjectType::STOVE) {
+			//Check if there is anything around the Player
+            //If there is then return true
+            if (i_map[x][y] == ObjectType::STOVE) {
 				output = true;
+
 			} else if (i_map[x][y] == ObjectType::DISHWASHER) {   
                 output = true;
+
 			} else if (i_map[x][y] == ObjectType::WALL) {   
                 output = true;
+
 			} else if (i_map[x][y] == ObjectType::BENCH) {   
                 output = true;
+
 			} else if (i_map[x][y] == ObjectType::CUSTOMER) {   
+                output = true;
+
+			} else if (i_map[x][y] == ObjectType::BIN) {   
                 output = true;
 			}
 		}
@@ -197,14 +197,14 @@ void Player::update(unsigned char i_level, std::array<std::array<ObjectType,
 
     //This is if the Player leave the map
     //Hardcode to make it impossible
-	if (-CELL_SIZE >= m_position.x)
-	{
-		m_position.x = CELL_SIZE * MAP_WIDTH - PLAYER_SPEED;
-	}
-	else if (CELL_SIZE * MAP_WIDTH <= m_position.x)
-	{
-		m_position.x = PLAYER_SPEED - CELL_SIZE;
-	}
+	// if (-CELL_SIZE >= m_position.x)
+	// {
+	// 	m_position.x = CELL_SIZE * MAP_WIDTH - PLAYER_SPEED;
+	// }
+	// else if (CELL_SIZE * MAP_WIDTH <= m_position.x)
+	// {
+	// 	m_position.x = PLAYER_SPEED - CELL_SIZE;
+	// }
 
 	// if (true == map_collision(1,
 	//                           0, 
@@ -223,8 +223,15 @@ void Player::update(unsigned char i_level, std::array<std::array<ObjectType,
 
 
 
+//learn to use this
+void draw(bool i_victory, sf::RenderWindow& i_window);
+
+//don't know
 void Player::set_direction(unsigned char i_direction) {
     m_direction = i_direction;
 }
 unsigned char Player::get_direction() {return m_direction;};
-
+void set_dead(bool i_dead);
+bool get_animation_over();
+void set_am_I_dead(bool i_am_I_dead);
+bool get_am_I_dead();
