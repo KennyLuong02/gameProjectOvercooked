@@ -100,7 +100,7 @@ void Bowl::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_H
 
     //If the Player want to pick up a bowl
     if (i_player.get_state() == 0) {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true) { //Press 'B' instead of Down
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::B) == true) { //Press 'B' instead of Down
             i_bowl_1.set_position(x_player_position,y_player_position);
             i_player.set_state(i_bowl_1.get_state()); //assuming they are carrying the first bowl and it is empty
                                    //change this later

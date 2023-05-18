@@ -75,7 +75,7 @@ void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType,
 
     //If the Player want to wash Bowl in the Dishwasher
     //Check if the key 'W' is pressed and Dishwasher
-    if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true) && 
+    if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) == true) && 
             (is_it_on == false)) { //maybe true
         if ((i_player.get_state() == -1) || (i_player.get_state() == -2) ||
             (i_player.get_state() == -2)) {
@@ -103,7 +103,7 @@ void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType,
 
     //If the Player want to pick up Bowl from the Dishwasher
     //Check if the key 'P' is pressed and Dishwasher is not on
-    if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true) && 
+    if ((sf::Keyboard::isKeyPressed(sf::Keyboard::P) == true) && 
             (is_it_on == false)) { //maybe true
         
         //check if the Player hand is empty

@@ -86,7 +86,7 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
     if ((i_player.get_state() != 0) && (get_state() <= 33)) { //33 is the maximum amount allowed
         //To put content inside the stove
         //Check if the 'D' key is pressed
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true &&
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) == true &&
                 get_cooking_state() == false) { //Press 'D' instead of Down 
                 
             //Check the state of the player
@@ -118,7 +118,7 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
     //If the Player want to cook food
     if (get_state() <= 33) { //33 is the maximum amount allowed
         //Check if the 'C' key is pressed
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true) { //Press 'C' instead of Up
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) == true) { //Press 'C' instead of Up
             //Hold 'C' for 3 seconds
             //Then the food cooked, maybe a display
             set_cooking_state(true);
@@ -128,7 +128,7 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
 
     //If the Player want to pick up soup
     //check if they press 'P'
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) == true) { //Press 'P' instead of Right
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) == true) { //Press 'P' instead of Right
         //check if they have an empty bowl
         if ((i_player.get_state() == 53) || (i_player.get_state() == 100) || (i_player.get_state() == 150)) {
             //check if the food is cooked
