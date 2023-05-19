@@ -47,11 +47,7 @@ class Bowl: public Appliance {
         
 
     private:
-        // int stateOfBowl;
         int content;
-        
-
-        //friend class Player
 
         //In SFML there will be colour
         //Add in later

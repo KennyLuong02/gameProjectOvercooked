@@ -1,26 +1,25 @@
-#ifndef __BIN_H__
-#define __BIN_H__
+#ifndef __TOMATO_H__
+#define __TOMATO_H__
 #include <string>
 #include <array>
 #include <cmath>
 #include "Position.h"
 #include "CSprite.h"
 #include "Player.h"
-#include "Bowl.h"
 
 #include <SFML/Graphics.hpp>
 
 using namespace std;
 
-class Bin: public CSprite  {
+class Tomato: public CSprite  {
     public:
-        Bin();
+        Tomato();
 
-        int get_state();
-        void set_state(int n);
+        int get_tomato_amount();
+        void set_tomato_amount(int n);
 
 	    void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
-                    Bowl& i_bowl_1, Player& i_player); //fix this and this can be made into virtual function);
+                    Player& i_player); //fix this and this can be made into virtual function);
 
         //reimplement virtual function from Appliance
         void reset();
@@ -29,6 +28,8 @@ class Bin: public CSprite  {
         //learn to use this
         void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
 
+    private:
+        int tomato_amount;
 };
 
 #endif

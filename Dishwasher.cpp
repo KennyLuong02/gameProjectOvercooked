@@ -6,7 +6,7 @@
 #include "CSprite.h"
 #include "Player.h"
 #include "Appliance.h"
-#include "Stove.h"
+#include "Bowl.h"
 #include "Dishwasher.h"
 
 
@@ -51,7 +51,7 @@ bool Dishwasher::player_collide(const Position& i_player_position) { //if the pl
 
 //fix this and this can be made into virtual function
 void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
-                    MAP_WIDTH>& i_map, Dishwasher& i_dishwasher, Bowl& i_bowl_1, Player& i_player, int content_to_add) {
+                    MAP_WIDTH>& i_map, Dishwasher& i_dishwasher, Bowl& i_bowl_1, Player& i_player) {
     
     Position thePlayer = i_player.get_position();
     int x_player_position = thePlayer.x;
@@ -64,21 +64,20 @@ void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType,
     int x_dishwasher_position = m_position.x;
     int y_dishwasher_position = m_position.y;
 
-    //Everything in the Stove will work only if the Player is in range
-    //Check if the position of the Player is inside the range of the Stove
+    //Everything in the Dishwasher will work only if the Player is in range
+    //Check if the position of the Player is inside the range of the Dishwasher
     //Implement player_collide
     if (player_collide(i_player.get_position()) == true) {
 
-    //Always display this if the Player is inside the range of the Stove
+    //Always display this if the Player is inside the range of the Dishwasher
     cout << "Try 'W' to wash the bowl" << endl;
     cout << "Try 'P' to pick up bowl" << endl;
 
     //If the Player want to wash Bowl in the Dishwasher
-    //Check if the key 'W' is pressed and Dishwasher
+    //Check if the key 'W' is pressed and Dishwasher if not on
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) == true) && 
-            (is_it_on == false)) { //maybe true
-        if ((i_player.get_state() == -1) || (i_player.get_state() == -2) ||
-            (i_player.get_state() == -2)) {
+            (is_it_on == false)) { //if it is not on
+        if (i_player.get_state() == -1) {
                 //turn it on
                 is_it_on = true;
 
@@ -111,7 +110,7 @@ void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType,
                 //change the Bowl position to the Player
                 i_bowl_1.set_position(x_player_position,y_player_position);
                 //change the state of the Player to the Bowl
-                i_player.set_state(i_bowl_1.get_state()); 
+                i_player.set_state(i_bowl_1.get_state());
 
         } else {
             //Do nothing

@@ -1,5 +1,5 @@
-#ifndef __DISHWASHER_H__
-#define __DISHWASHER_H__
+#ifndef __BENCH_H__
+#define __BENCH_H__
 #include <string>
 #include <array>
 #include <cmath>
@@ -12,29 +12,17 @@
 #include <SFML/Graphics.hpp>
 
 using namespace std;
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// FOR THE DISHWASHER
-//
-// [Dishwasher]
-//      - Variables:
-//          int state; (inherit from Container.h)
-//          time_t time; (inherit from Container.h)
-//          bool isOn;
-//      - Functions:
 
-class Dishwasher: public Appliance {
+class Bench: public Appliance {
     public:
-        Dishwasher(); //Initialise with an array of 3 empty spots to hold the bowls
+        Bench();
+        Bench(unsigned char i_id); //Initialise with an array of 3 empty spots to hold the bowls
         
         int get_state();
         void set_state(int n);
 
-
-        bool get_power_state();
-        void set_power_state(bool n);
-
         void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
-                    Dishwasher& i_dishwasher, Bowl& i_bowl_1, Player& i_player); //fix this and this can be made into virtual function);
+                    Bench& i_bench, Bowl& i_bowl_1, Player& i_player); //fix this and this can be made into virtual function);
                     // Seht work on the display for Player options
 
         //reimplement virtual function from Appliance
@@ -46,7 +34,7 @@ class Dishwasher: public Appliance {
 
 
     private:
-        bool is_it_on;
+        unsigned char m_id;
         
 
         //friend class Player

@@ -34,7 +34,7 @@ class Appliance: public CSprite {
 
         //virtual function
         virtual void reset();
-	      virtual bool player_collide (const Position&  i_player_position);
+	      virtual bool player_collide(const Position&  i_player_position);
 
         //learn to use this
         void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
@@ -50,12 +50,6 @@ class Appliance: public CSprite {
 
         //don't know
         unsigned char  m_id;
-	    //The ghost will go here when escaping.
-	    Position m_home_pos;
-	    //You can't stay in your house forever (sadly).
-	    Position m_home_exit_pos;
-	    //Current m_target_pos.
-	    Position m_target_pos;
 
 };
 

@@ -27,11 +27,6 @@ int Stove::get_content() {return content;};
 
 void Stove::set_content(int contentt) {
     this-> content = content;
-    // if (contentt == 0 || contentt == 15 || contentt == 21 || contentt == 33 || contentt == 23) {
-    //     this-> content = content; //Either 0: empty, 15: Mushroom soup, 21: Onion soup, 33: Tomato soup, 23: Com soup
-    // } else {
-    //     cout << "Cannot put this into the bowl" << endl; //need to change it in the SFML version
-    // }
 };
 
 bool Stove::get_cooking_state() {return is_it_cooked;};
@@ -81,6 +76,9 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
     cout << "Try 'C' to cook food" << endl;
     cout << "Try 'P' to pick up food" << endl;
 
+    //Also display the content inside the Stove
+
+
     //If the Player want to put food in the Stove
     //Check if the Player has something and check if the Stove is not full
     if ((i_player.get_state() != 0) && (get_state() <= 33)) { //33 is the maximum amount allowed
@@ -119,9 +117,12 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
     if (get_state() <= 33) { //33 is the maximum amount allowed
         //Check if the 'C' key is pressed
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) == true) { //Press 'C' instead of Up
+
             //Hold 'C' for 3 seconds
+
             //Then the food cooked, maybe a display
             set_cooking_state(true);
+            cout << "Your food is cook" << endl;
         }
     }
     
@@ -130,10 +131,11 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
     //check if they press 'P'
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) == true) { //Press 'P' instead of Right
         //check if they have an empty bowl
-        if ((i_player.get_state() == 53) || (i_player.get_state() == 100) || (i_player.get_state() == 150)) {
+        if (i_player.get_state() == 1) {
             //check if the food is cooked
             if (is_it_cooked == true) {
-                i_bowl_1.set_content(content + i_player.get_state());
+                i_bowl_1.set_content(content);
+                i_player.set_state(content);
             } else {
                 //Do nothing
                 //Maybe display a warning
@@ -142,7 +144,7 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
         } else {
             //Do nothing
             //Maybe display a warning
-            cout << "You don't have a bowl to contain food" << endl;
+            cout << "You don't have a clean bowl to contain food" << endl;
         }
     }
     }

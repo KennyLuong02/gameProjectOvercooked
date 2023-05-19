@@ -1,20 +1,66 @@
-Bowl.cpp - not yet
-Bowl.h - not yet
+Appliance.h and .cpp - a lot to consider
+                       base class for Bowl, Dishwasher, Stove
+                            -> need virtual: reset(), player_collide(...), draw(...) [[or just not include draw(...)]]
 
-Container.cpp - done
-Container.h - check the virtual function
+ApplianceManager.h and .cpp -
 
-Dishwasher.cpp - in timerFunction() need a Bowl pointer
-Dishwasher.h - may need an interaction function with time (2s)
+Bin.h and .cpp - Kenny: done
+           player_collide(...): Ansh and Seth need to fix this
+                                Because the Player need to not go over anything
+                                And the Position is realted to the map you guys design
+           draw(...): Ansh and Seth learn to render sfml
 
-Order.cpp - properly done, except may need to make the Order array dynamic
-Order.h - suggestion: can combine Order and putOrder
+Bench.h and .cpp - Kenny: almost done
+                        Ansh and Seth: work on the rendering in update(...) and draw(...)
 
-Player.cpp - done
-Player.h - done
+Bowl.h and .cpp - only make one bowl
+           set_content(int content): the cout need to use sfml
+           player_collide(...): Ansh and Seth need to fix this
+                                Because the Player need to not go over anything
+                                And the Position is realted to the map you guys design
+           draw(...): Ansh and Seth learn to render sfml
+           Kenny: need to delete comment
+                            0: empty bowl
+                            -1: dirty bowl
+                            15, 21, 33, 23: bowl with soup
 
-Resources.cpp - need a lot of work
-Resources.h - need a lot of work
+Dishwasher.h and .cpp - only have one
+            player_collide(...): Ansh and Seth need to fix this
+                                So choose an area that the Player need to be in to active the Dishwasher
+            update(...): Ansh and Seth need to fix this
+                        All the cout need to be rendered in sfml
+                        Kenny: need to figure out the 2 seconds thing
+                                Otherwise just ignore it
 
-Stove.cpp - may need an interaction function with time (3s)
-Stove.h - may need an interaction function with time (3s)
+Stove.h and .cpp - only have one
+            player_collide(...): Ansh and Seth need to fix this
+                                So choose an area that the Player need to be in to active the Stove
+            update(...): Ansh and Seth need to fix this
+                        All the cout need to be rendered in sfml
+                        Kenny: need to figure out the 3 seconds thing
+                                Otherwise just ignore it
+
+Player.h and .cpp - many to work on 
+                reset(): Ansh and Seth choose the position of the Player
+                update(...): Kenny: fix the part where allow the Player move as long as the key is held
+                draw(...): Ansh and Seth
+                        be careful of how you guys render the Player
+                        Player will have a lot of states
+                            0: empty hand
+                            -1: carry dirty bowl
+                            1: carry empty bowl
+                            5: carry Mushroom
+                            7: carry Onion
+                            11: carry Tomato
+                            15, 21, 33, 23: carry bowl with soup
+
+                set_direction(...), set_dead(...), get_animation_over(), set_am_I_dead(...), get_am_I_dead()
+                    -> Kenny: check if need these
+
+Position.h - Kenny: check the equal operator function
+                Ansh and Seth: decide the map size, speed, animation frame
+
+Order.h and .cpp - use randi()
+
+Mushroom.h and .cpp (also onion and tomato) - Kenny: done
+                                                Ansh and Seth: fixed up the rendering them

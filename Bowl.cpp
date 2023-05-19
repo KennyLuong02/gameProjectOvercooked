@@ -13,14 +13,9 @@
 
 using namespace std;
 
-
-// Need some more work
-
-
 Bowl::Bowl() {
     Appliance(0);
     content = 0; //No soup inside
-    //may need to set the inherited timer to 0
 };
 
 int Bowl::get_state() {return get_state();};
@@ -58,39 +53,10 @@ bool Bowl::player_collide(const Position& i_player_position) { //if the player i
 	return false;
 }
 
-//fix this and this can be made into virtual function
+//fix this
 void Bowl::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
                     MAP_WIDTH>& i_map, Bowl& i_bowl_1, Player& i_player) {
-
-	//Can the ghost move?
-	// bool move = 0;
-
-	//If this is greater than 1, that means that the ghost has reached the intersection.
-	//We don't consider the way back as an available way.
-	unsigned char available_ways = 0;
-
-	// unsigned char speed          = GHOST_SPEED;
-
-	// std::array<bool, 4> walls{};
-
-	//I used the modulo operator in case the ghost goes outside the grid.
-	// if ((m_frightened_mode                 == 2) &&
-	//     (m_position.x % GHOST_ESCAPE_SPEED == 0) &&
-	// 	(m_position.y % GHOST_ESCAPE_SPEED == 0))
-	// {
-	// 	speed = GHOST_ESCAPE_SPEED;
-	// }
-
-	// update_target(i_pacman.get_direction(),
-	//               i_ghost_0.get_position(),
-	// 			  i_pacman.get_position());
-
-	//This is so clean! I could spend hours staring at it.
-	// walls[0] = map_collision(0, m_use_door, m_position.x + speed, m_position.y,         i_map);
-	// walls[1] = map_collision(0, m_use_door, m_position.x,         m_position.y - speed, i_map);
-	// walls[2] = map_collision(0, m_use_door, m_position.x - speed, m_position.y,         i_map);
-	// walls[3] = map_collision(0, m_use_door, m_position.x,         m_position.y + speed, i_map);
-
+	
     Position thePlayer = i_player.get_position();
     int x_player_position = thePlayer.x;
     int y_player_position = thePlayer.y;
@@ -109,71 +75,6 @@ void Bowl::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_H
         cout << "Your hand is full" << endl; //change this later
     }
 
-    // if (i_player.get_state() != 0) {
-
-    // }
-
-
-
-	
-
-	//If the ghost can move, we move it.
-	// if (move == 1)
-	// {
-	// 	switch (m_direction)
-	// 	{
-	// 		case 0:
-	// 		{
-	// 			m_position.x += speed;
-
-	// 			break;
-	// 		}
-	// 		case 1:
-	// 		{
-	// 			m_position.y -= speed;
-
-	// 			break;
-	// 		}
-	// 		case 2:
-	// 		{
-	// 			m_position.x -= speed;
-
-	// 			break;
-	// 		}
-	// 		case 3:
-	// 		{
-	// 			m_position.y += speed;
-	// 		}
-	// 	}
-
-	// 	//Warping.
-	// 	//When the ghost leaves the map, we move it to the other side.
-	// 	if (m_position.x <= -CELL_SIZE)
-	// 	{
-	// 		m_position.x = CELL_SIZE * MAP_WIDTH - speed;
-	// 	}
-	// 	else if (m_position.x >= CELL_SIZE * MAP_WIDTH)
-	// 	{
-	// 		m_position.x = speed - CELL_SIZE;
-	// 	}
-	// }
-
-	// if (pacman_collision(i_pacman.get_position()) == true)
-	// {
-	// 	//When the ghost is not frightened and collides with Pacman, we kill Pacman.
-	// 	if (m_frightened_mode == 0) 
-	// 	{
-	// 		i_pacman.set_am_I_dead(true);
-	// 	}
-	// 	else //Otherwise, the ghost starts running towards the house.
-	// 	{
-	// 		m_use_door = true;
-
-	// 		m_frightened_mode = 2;
-
-	// 		m_target_pos = m_home_pos;
-	// 	}
-	// }
 };
 
         //learn to use this
