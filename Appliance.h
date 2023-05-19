@@ -4,15 +4,6 @@
 #include "Position.h"
 #include "CSprite.h"
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// FOR THE APPLIANCE
-//
-// [Appliance]
-//      - Variables:
-//          bool state;
-//          string name;
-//      - Functions:
-
 enum AppObject
 {
   APP_DEFAULT,
@@ -24,32 +15,20 @@ enum AppObject
 class Appliance: public CSprite {
     public:
         Appliance();
-        Appliance(unsigned char i_id);  //may use int
+        Appliance(unsigned char i_id);
 
         int get_state();
         void set_state(int state);
-        
-	      void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
-                    Appliance& i_ghost_0, Player& i_player); //fix this and this can be made into virtual function
 
         //virtual function
         virtual void reset();
-	      virtual bool player_collide(const Position&  i_player_position);
+        //virtual pure function
+	      virtual bool player_collide(const Position& i_player_position);
+        virtual void draw(bool i_object,sf::RenderWindow& i_window);
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
-
-
-    protected:
-        int state;
-        // bool isFull
-        time_t timeContainer; //check
-
-	    unsigned short m_animation_frame_timer;
-
-
-        //don't know
-        unsigned char  m_id;
+  protected:
+    unsigned short m_animation_frame_timer;
+    unsigned char  m_id;
 
 };
 

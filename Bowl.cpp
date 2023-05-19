@@ -6,7 +6,6 @@
 #include "CSprite.h"
 #include "Player.h"
 #include "Appliance.h"
-#include "MapCollide.h"
 #include "Bowl.h"
 
 #include <SFML/Graphics.hpp>
@@ -18,11 +17,11 @@ Bowl::Bowl() {
     content = 0; //No soup inside
 };
 
-int Bowl::get_state() {return get_state();};
+int Bowl::get_state() {return get_state();}
 
-void Bowl::set_state(int state) {set_state(state);};
+void Bowl::set_state(int state) {set_state(state);}
 
-int Bowl::get_content() {return content;};
+int Bowl::get_content() {return content;}
 
 void Bowl::set_content(int contentt) {
     if (contentt == 0 || contentt == 15 || contentt == 21 || contentt == 33 || contentt == 23) {
@@ -30,10 +29,11 @@ void Bowl::set_content(int contentt) {
     } else {
         cout << "Cannot put this into the bowl" << endl; //need to change it in the SFML version
     }
-};
+}
 
 void Bowl::reset() {
-	reset();
+	state = 0;
+	m_animation_frame_timer  = 0;
     content = 0;
 }
 
@@ -53,7 +53,6 @@ bool Bowl::player_collide(const Position& i_player_position) { //if the player i
 	return false;
 }
 
-//fix this
 void Bowl::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
                     MAP_WIDTH>& i_map, Bowl& i_bowl_1, Player& i_player) {
 	
@@ -75,7 +74,8 @@ void Bowl::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_H
         cout << "Your hand is full" << endl; //change this later
     }
 
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Bowl::draw(bool i_flash,sf::RenderWindow& i_window) {
+
+}

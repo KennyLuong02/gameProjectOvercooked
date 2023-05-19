@@ -12,19 +12,20 @@
 using namespace std;
 
 Bin::Bin() {
-    state = 0;
+    Appliance();
 }
 
-int Bin::get_state() {return get_state();};
+int Bin::get_state() {return get_state();}
 
-void Bin::set_state(int state) {set_state(0);};
+void Bin::set_state(int state) {set_state(0);}
 
 void Bin::reset() {
     state = 0;
+	m_animation_frame_timer  = 0;
 }
 
 ///////////////////////////////
-//Change this to the range of the Stove and Player position
+//Change this to the range of the Bin and Player position
 bool Bin::player_collide(const Position& i_player_position) { //if the player is in the assign position and press a key then do this
 	if ((m_position.x > i_player_position.x - CELL_SIZE) && 
 	    (m_position.x < i_player_position.x + CELL_SIZE))
@@ -39,7 +40,6 @@ bool Bin::player_collide(const Position& i_player_position) { //if the player is
 	return false;
 }
 
-//fix this and this can be made into virtual function
 void Bin::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
                     MAP_WIDTH>& i_map, Bowl& i_bowl_1, Player& i_player) {
     
@@ -77,7 +77,8 @@ void Bin::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HE
         }
     }
     }
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Bin::draw(bool i_flash,sf::RenderWindow& i_window) {
+
+}

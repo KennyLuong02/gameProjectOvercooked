@@ -1,3 +1,6 @@
+#ifndef __POSITION_H__
+#define __POSITION_H__
+
 // The x and y size in pixels of the "grid" cells.
 // NOTE: This is also the size in pixels of all the graphic sprites
 constexpr unsigned char CELL_SIZE               = 16; // Pixels
@@ -20,7 +23,6 @@ constexpr unsigned char PLAYER_DEATH_FRAMES     = 12; // Number of frames in the
 constexpr unsigned short FRAME_DURATION         = 16667;// micro-seconds
 
 //Don't know
-constexpr unsigned short CHASE_DURATION         = 1024; // frames
 constexpr unsigned short LONG_SCATTER_DURATION  = 512;  // frames
 constexpr unsigned short SHORT_SCATTER_DURATION = 256;  // frames
 
@@ -30,11 +32,8 @@ enum ObjectType {
 	BOWL,
 	WALL,
 	BENCH,
-	CUSTOMER,
+	ORDER,
 	BIN,
-	
-	//We may need this
-	EMPTY,
 	ONION,
 	TOMATO,
 	MUSHROOM
@@ -49,3 +48,5 @@ struct Position {
     	int x;
 	    int y;
 };
+
+#endif

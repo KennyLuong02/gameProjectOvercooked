@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Position.h"
 #include "CSprite.h"
+#include "Appliance.h"
 #include "Player.h"
 #include "Onion.h"
 
@@ -12,16 +13,17 @@
 using namespace std;
 
 Onion::Onion() {
-    state = 0;
+    Appliance();
     onion_amount = 100;
 }
 
-int Onion::get_onion_amount() {return onion_amount;};
+int Onion::get_onion_amount() {return onion_amount;}
 
-void Onion::set_onion_amount(int state) {set_state(0);};
+void Onion::set_onion_amount(int state) {set_state(0);}
 
 void Onion::reset() {
     state = 0;
+	m_animation_frame_timer  = 0;
     onion_amount = 100;
 }
 
@@ -68,7 +70,8 @@ void Onion::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
         }
     }
     }
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Onion::draw(bool i_flash,sf::RenderWindow& i_window) {
+
+}

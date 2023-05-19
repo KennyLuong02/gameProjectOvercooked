@@ -1,8 +1,8 @@
-Appliance.h and .cpp - a lot to consider
+Appliance.h and .cpp - see if can make update(...), player_collide as pure virtual
                        base class for Bowl, Dishwasher, Stove
                             -> need virtual: reset(), player_collide(...), draw(...) [[or just not include draw(...)]]
 
-ApplianceManager.h and .cpp -
+ApplianceManager.h and .cpp - a lot to be done
 
 Bin.h and .cpp - Kenny: done
            player_collide(...): Ansh and Seth need to fix this
@@ -23,6 +23,8 @@ Bowl.h and .cpp - only make one bowl
                             0: empty bowl
                             -1: dirty bowl
                             15, 21, 33, 23: bowl with soup
+           Kenny: in reset() need to reset the position of the Bowl
+                  in Bowl() neef to set the position for the Bowl
 
 Dishwasher.h and .cpp - only have one
             player_collide(...): Ansh and Seth need to fix this
@@ -56,6 +58,7 @@ Player.h and .cpp - many to work on
 
                 set_direction(...), set_dead(...), get_animation_over(), set_am_I_dead(...), get_am_I_dead()
                     -> Kenny: check if need these
+                Kenny: add in score count
 
 Position.h - Kenny: check the equal operator function
                 Ansh and Seth: decide the map size, speed, animation frame

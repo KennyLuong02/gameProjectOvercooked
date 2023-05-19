@@ -16,27 +16,28 @@ Stove::Stove() {
     Appliance(0);
     content = 0; //No soup inside
     is_it_cooked = false;
-    //may need to set the inherited timer to 0
-};
+}
 
-int Stove::get_state() {return get_state();};
+int Stove::get_state() {return get_state();}
 
-void Stove::set_state(int state) {set_state(state);};
+void Stove::set_state(int state) {set_state(state);}
 
-int Stove::get_content() {return content;};
+int Stove::get_content() {return content;}
 
 void Stove::set_content(int contentt) {
     this-> content = content;
-};
+}
 
 bool Stove::get_cooking_state() {return is_it_cooked;};
 void Stove::set_cooking_state(bool cook_yet) {
     is_it_cooked = cook_yet;
-};
+}
 
 void Stove::reset() {
-	reset();
+	state = 0;
+	m_animation_frame_timer  = 0;
     content = 0;
+    is_it_cooked = false;
 }
 
 ///////////////////////////////
@@ -51,11 +52,9 @@ bool Stove::player_collide(const Position& i_player_position) { //if the player 
 			return true;
 		}
 	}
-
 	return false;
 }
 
-//fix this and this can be made into virtual function
 void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
                     MAP_WIDTH>& i_map, Stove& i_stove, Bowl& i_bowl_1, Player& i_player, int content_to_add) {
     
@@ -149,7 +148,8 @@ void Stove::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
     }
     }
 
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Stove::draw(bool i_flash,sf::RenderWindow& i_window) {
+
+}

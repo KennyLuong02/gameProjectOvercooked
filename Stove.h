@@ -9,22 +9,9 @@
 #include "Appliance.h"
 #include "Bowl.h"
 
-#include "MapCollide.h"
-
 #include <SFML/Graphics.hpp>
 
 using namespace std;
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// FOR THE STOVE
-//
-// [Stove]
-//      - Variables:
-//         int content;
-//     - Functions:
-//         Stove(); //maybe make 2 stoves
-//         int getState();
-//         void setState(int n);      
-//
 
 class Stove: public Appliance {
     public:
@@ -47,19 +34,11 @@ class Stove: public Appliance {
         //reimplement virtual function from Appliance
         void reset();
         bool player_collide (const Position&  i_player_position);
-
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+        void draw(bool i_flash,sf::RenderWindow& i_window);
 
     private:
         int content;
         bool is_it_cooked;
-        
-
-        //friend class Player
-
-        //In SFML there will be colour
-        //Add in later
 
 };
 

@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Position.h"
 #include "CSprite.h"
+#include "Appliance.h"
 #include "Player.h"
 #include "Mushroom.h"
 
@@ -12,16 +13,17 @@
 using namespace std;
 
 Mushroom::Mushroom() {
-    state = 0;
+    Appliance();
     mushroom_amount = 100;
 }
 
-int Mushroom::get_mushroom_amount() {return mushroom_amount;};
+int Mushroom::get_mushroom_amount() {return mushroom_amount;}
 
-void Mushroom::set_mushroom_amount(int state) {set_state(0);};
+void Mushroom::set_mushroom_amount(int state) {set_state(0);}
 
 void Mushroom::reset() {
     state = 0;
+	m_animation_frame_timer  = 0;
     mushroom_amount = 100;
 }
 
@@ -37,7 +39,6 @@ bool Mushroom::player_collide(const Position& i_player_position) {
 			return true;
 		}
 	}
-
 	return false;
 }
 
@@ -68,7 +69,8 @@ void Mushroom::update(unsigned char i_level, std::array<std::array<ObjectType, M
         }
     }
     }
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Mushroom::draw(bool i_flash,sf::RenderWindow& i_window) {
+
+}

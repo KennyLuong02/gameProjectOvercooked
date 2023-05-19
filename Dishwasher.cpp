@@ -29,7 +29,8 @@ void Dishwasher::set_power_state(bool n) {
 };
 
 void Dishwasher::reset() {
-	reset();
+	state = 0;
+	m_animation_frame_timer  = 0;
     is_it_on = false;
 }
 
@@ -49,7 +50,6 @@ bool Dishwasher::player_collide(const Position& i_player_position) { //if the pl
 	return false;
 }
 
-//fix this and this can be made into virtual function
 void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
                     MAP_WIDTH>& i_map, Dishwasher& i_dishwasher, Bowl& i_bowl_1, Player& i_player) {
     
@@ -118,9 +118,9 @@ void Dishwasher::update(unsigned char i_level, std::array<std::array<ObjectType,
             cout << "Your hand is not empty" << endl;
         }
     }
-
+    }
 }
-                    };
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Dishwasher::draw(bool i_flash,sf::RenderWindow& i_window) {
+    
+}

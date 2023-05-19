@@ -14,13 +14,12 @@
 using namespace std;
 
 Bench::Bench() {
-    Appliance(0);
+    Appliance();
     m_id = 0;
 }
 
 Bench::Bench(unsigned char i_id) {
-    Appliance(0);
-    m_id = i_id;
+    Appliance(i_id);
 }
 
 int Bench::get_state() {return get_state();};
@@ -28,11 +27,12 @@ int Bench::get_state() {return get_state();};
 void Bench::set_state(int state) {set_state(state);};
 
 void Bench::reset() {
-	reset();
+	state = 0;
+	m_animation_frame_timer  = 0;
 }
 
 ///////////////////////////////
-//Change this to the range of the Stove and Player position
+//Change this to the range of the Bench and Player position
 bool Bench::player_collide(const Position& i_player_position) { //if the player is in the assign position and press a key then do this
 	if ((m_position.x > i_player_position.x - CELL_SIZE) && 
 	    (m_position.x < i_player_position.x + CELL_SIZE))
@@ -47,7 +47,6 @@ bool Bench::player_collide(const Position& i_player_position) { //if the player 
 	return false;
 }
 
-//fix this and this can be made into virtual function
 void Bench::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
                     MAP_WIDTH>& i_map, Bench& i_bench, Bowl& i_bowl_1, Player& i_player) {
     
@@ -125,7 +124,8 @@ void Bench::update(unsigned char i_level, std::array<std::array<ObjectType, MAP_
         }
     }
     }
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Bench::draw(bool i_flash,sf::RenderWindow& i_window) {
+    
+}

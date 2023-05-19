@@ -22,21 +22,26 @@ class ApplianceManager {
     public:
         ApplianceManager();
 
-        void draw  (bool i_flash, sf::RenderWindow& i_window);
+        Appliance** get_appliance_manager();
 
-        void reset (unsigned char i_level, const std::array<Position, 10>& i_appliance_positions);
-        void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, 
-                        MAP_WIDTH>& i_map, Player& i_player);
+        void draw(bool i_flash, sf::RenderWindow& i_window);
+
+        void reset();
+        //void reset(unsigned char i_level, const std::array<Position, 10>& i_appliance_positions);
+        void update(unsigned char i_level, std::array<std::array<ObjectType, MAP_HEIGHT>, MAP_WIDTH>& i_map,
+						Bench& i_bench, Dishwasher& i_dishwasher, Stove& i_stove, Bowl& i_bowl_1, Player&  i_player, 
+						  	int content_to_add);
 
     private:
-        std::array<Appliance, 10> m_ghosts;
+        Appliance** m_appliance;
+        //std::array<Appliance, 10> m_appliance;
 
         //The ghosts will switch between the scatter mode and the chase mode before permanently chasing Pacman.
         //So we need this to keep track of the waves.
-        unsigned char        m_current_wave;
+        // unsigned char        m_current_wave;
 
         //Damn, I really used a lot of timers.
-        unsigned short       m_wave_timer;
+        // unsigned short       m_wave_timer;
 };
 
 #endif

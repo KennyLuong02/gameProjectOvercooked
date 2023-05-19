@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Position.h"
 #include "CSprite.h"
+#include "Appliance.h"
 #include "Player.h"
 #include "Tomato.h"
 
@@ -12,16 +13,17 @@
 using namespace std;
 
 Tomato::Tomato() {
-    state = 0;
+    Appliance();
     tomato_amount = 100;
 }
 
-int Tomato::get_tomato_amount() {return tomato_amount;};
+int Tomato::get_tomato_amount() {return tomato_amount;}
 
-void Tomato::set_tomato_amount(int state) {set_state(0);};
+void Tomato::set_tomato_amount(int state) {set_state(0);}
 
 void Tomato::reset() {
     state = 0;
+	m_animation_frame_timer  = 0;
     tomato_amount = 100;
 }
 
@@ -68,7 +70,8 @@ void Tomato::update(unsigned char i_level, std::array<std::array<ObjectType, MAP
         }
     }
     }
-};
+}
 
-        //learn to use this
-        void draw(bool i_flash,sf::RenderWindow& i_window); //fix flash and learn render in sfml
+void Tomato::draw(bool i_flash,sf::RenderWindow& i_window) {
+
+}
